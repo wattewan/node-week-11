@@ -22,9 +22,9 @@ app.use((request, response, next) => {
 });
 
 
-app.use((request, response, next) => {
-	response.render('error.hbs')
-});
+// app.use((request, response, next) => {
+// 	response.render('error.hbs')
+// });
 
 
 
