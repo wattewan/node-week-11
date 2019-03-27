@@ -3,6 +3,8 @@ const hbs = require('hbs')
 const axios = require('axios');
 const fs = require('fs')
 
+const port = process.env.PORT || 8080;
+
 
 var app = express();
 
@@ -21,15 +23,7 @@ app.use((request, response, next) => {
 
 
 app.use((request, response, next) => {
-	var time = new Date().toString();
-	var log = `${time}: ${request.method} ${request.url}`
 	response.render('error.hbs')
-	fs.appendFile('server.log', log + '\n', (error) => {
-		if (error) {
-			console.log('Unable to log message');
-		}
-	});
-	//console.log(`${time}: ${request.method} ${request.url}`);
 });
 
 
@@ -128,7 +122,7 @@ app.get('/currency', (request, response) => {
 	})
 
 
-app.listen(8080, () => {
-	console.log('Server is up on the port 8080');
+app.listen(port, () => {
+	console.log('Server is up on the port ${port}');
 });
 
