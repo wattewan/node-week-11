@@ -64,7 +64,7 @@ const getRates = () => {
 			if (axios.get('https://api.exchangeratesapi.io/latest')) {
 				resolve(axios.get('https://api.exchangeratesapi.io/latest'))
 			} else {
-				reject('Not acceptble currency rates')
+				reject('Not acceptble currency code rates')
 			}
 	}) 
 
@@ -74,7 +74,7 @@ const getContries = (id1) => {
 		if (axios.get('https://restcountries.eu/rest/v2/currency/' + id1)) {
 			resolve(axios.get('https://restcountries.eu/rest/v2/currency/' + id1))
 		} else {
-			reject('Invalid currency')
+			reject('Invalid currency code')
 		}
 	})
 }
